@@ -1,0 +1,3 @@
+50.00 "Bahraini Dinar" = 113.16 "Pound Sterling"
+DATE: Dec 10 2022			TIME: 20:11:50
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Website</title>
+    <style>
+      .container {
+        width: 1000px;
+        height: 500px;
+        background-color: red;
+        text-align: center;
+      }
+      .button:hover {
+        box-shadow: 7px 6px 21px 6px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 7px 6px 21px 6px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 7px 6px 21px 6px rgba(0, 0, 0, 0.75);
+      }
+      .text {
+        font-size: 100px;
+        color: white;
+      }
+      .text2 {
+        display: none;
+      }
+      .img {
+        width: 1000px;
+        height: auto;
+      }
+      nav > ul > li {
+        display: inline;
+        margin: 30px;
+      }
+      nav {
+        background-color: black;
+        color: white;
+      }
+      @media screen and (max-width: 479px) {
+        .container {
+          width: 200px;
+          height: 200px;
+          text-align: left;
+        }
+        .text {
+          font-size: 30px;
+        }
+        .img {
+          width: 450px;
+          height: auto;
+        }
+        .button:hover {
+          width: 200px;
+          margin-top: -15px;
+          background-color: aqua;
+          color: white;
+        }
+        .text1 {
+          display: none;
+        }
+        .text2 {
+          display: block;
+        }
+        nav > ul > li {
+          display: block;
+          margin: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>Home</li>
+        <li>Home</li>
+        <li>Home</li>
+        <li>Home</li>
+      </ul>
+    </nav>
+    <div class="container">
+      <p class="text text1">This is Desktop Screen</p>
+      <p class="text text2">This is Mobile Screen</p>
+      <button class="button">Hover Button</button>
+    </div>
+    <br />
+    <br />
+    <img class="img" src="baby.jpg" alt="" />
+  </body>
+</html>

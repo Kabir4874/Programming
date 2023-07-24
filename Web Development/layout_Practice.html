@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            width: 100%;
+            height: 955px;
+            background-color:rgba(21, 22, 23, 1);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 70fr 1fr 70fr;
+            gap: 10px;
+        }
+        .item{
+            background-color: black;
+            color: white;
+        }
+        .header{
+            grid-column-start: 1;
+            grid-column-end: 4;
+            background-color: rgba(19, 20, 21, 1);
+        }
+        .footer {
+            grid-column-start: 1;
+            grid-column-end: 4;
+            text-align: center;
+            background-color: rgba(19, 20, 21, 1);
+        }
+        .middle {
+            height: 600px;
+            width: 600px;
+            justify-self: center;
+            align-self: center;
+        }
+        .left {
+            padding: 30px;
+            text-align: justify;
+            height: 700px;
+            font-size: 30px;
+            background-color: rgba(19, 20, 21, 1);
+        }
+
+        .right {
+            padding: 30px;
+            text-align: justify;
+            font-size: 30px;
+            background-color: rgba(19, 20, 21, 1);
+        }
+        .header>ul>li{
+            display: inline;
+            margin-right: 29px;
+            cursor: pointer;
+        }
+        .header>ul>.logo {
+            font-size: 29px;
+            font-weight: bold;
+            margin-right: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header item">
+            <ul>
+                <li class="logo">TITANIC</li>
+                <li>Home</li>
+                <li>Download</li>
+                <li>About</li>
+                <li>Contact</li>
+                <li><input type="text" placeholder="Search"></li>
+            </ul>
+        </div>
+        <div class="item left">
+            Titanic is a 1997 American epic romance and disaster film directed, written, produced, and co-edited by James Cameron. Incorporating both historical and fictionalized aspects, it is based on accounts of the sinking of the RMS Titanic, and stars Leonardo DiCaprio and Kate Winslet as members of different social classes who fall in love aboard the ship during its ill-fated maiden voyage. Also starring are Billy Zane, Kathy Bates, Frances Fisher, Gloria Stuart, Bernard Hill, Jonathan Hyde, Victor Garber, and Bill Paxton.
+        </div>
+        <div class="item middle">
+            <img src="titanic.jpg" height="600" width="600" alt="titanic">
+        </div>
+        <div class="item right">
+            Cameron's inspiration for the film came from his fascination with shipwrecks; he felt a love story interspersed with the human loss would be essential to convey the emotional impact of the disaster. Production began in 1995, when Cameron shot footage of the actual Titanic wreck. The modern scenes on the research vessel were shot on board the Akademik Mstislav Keldysh, which Cameron had used as a base when filming the wreck.
+        </div>
+        <div class="item footer">
+            <h1>Copyright @ TITANIC - 2022</h1>
+        </div>
+
+    </div>
+    
+</body>
+</html>
