@@ -12,7 +12,7 @@ int main()
             count++;
             s.erase(i, 2);
             len = s.length();
-            i = -1;
+            i = max(-1, i - 2);
         }
     }
     if (count % 2 == 0)
