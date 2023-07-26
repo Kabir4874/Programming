@@ -7,23 +7,55 @@ int main()
     {
         scanf("%d%d%d", &b, &p, &f);
         scanf("%d%d", &h, &c);
-        int ans = 0;
-        while (b > 1)
+        int count1 = 0, count2 = 0;
+        if (h < c)
         {
-            if (h < c)
+            while (f != 0)
             {
-                if (f * 2 <= b)
+                if (b < 2)
                 {
-                    b = b - f * 2;
-                    ans += (f * 2) * c;
+                    break;
                 }
-                if (p * 2 <= b)
+                b -= 2;
+                f--;
+                count2++;
+            }
+            while (p != 0)
+            {
+                if (b < 2)
                 {
-                    b = b - p * 2;
-                    ans += (p * 2) * h;
+                    break;
                 }
+                b -= 2;
+                p--;
+                count1++;
             }
         }
+        else
+        {
+
+            while (p != 0)
+            {
+                if (b < 2)
+                {
+                    break;
+                }
+                b -= 2;
+                p--;
+                count1++;
+            }
+            while (f != 0)
+            {
+                if (b < 2)
+                {
+                    break;
+                }
+                b -= 2;
+                f--;
+                count2++;
+            }
+        }
+        printf("%d\n", (count1 * h) + (count2 * c));
     }
 
     return 0;
