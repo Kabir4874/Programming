@@ -9,8 +9,6 @@ int main()
     v.push_back(6);
     v.push_back(7);
     v.push_back(8);
-
     cout << binary_search(v.begin(), v.end(), 6);
-
     return 0;
 }
