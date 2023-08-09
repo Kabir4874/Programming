@@ -9,25 +9,24 @@ int main()
     while (t--)
     {
         cin >> n >> q;
-        int arr[n];
+        vector<int> arr;
+        int k;
         for (int i = 0; i < n; i++)
         {
-            scanf("%d", &arr[i]);
+            scanf("%d", &k);
+            arr.push_back(k);
         }
         int a, b;
         printf("Case %d:\n", i++);
         for (int i = 0; i < q; i++)
         {
             scanf("%d %d", &a, &b);
-            int count = 0;
-            for (int j = 0; j < n; j++)
-            {
-                if (arr[j] >= a && arr[j] <= b)
-                {
-                    count++;
-                }
-            }
-            printf("%d\n", count);
+            vector<int>::iterator x, y;
+
+            x = lower_bound(arr.begin(), arr.end(), a);
+            y = upper_bound(arr.begin(), arr.end(), b);
+
+            printf("%d\n", ((y - arr.begin()) - (x - arr.begin())));
         }
     }
     return 0;
