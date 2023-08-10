@@ -1,23 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-bool Search(vector<int> v, int n, int i)
-{
-    int s = i, e = n - 1, mid;
-    int temp = v[i] * 2;
-    while (s <= e)
-    {
-        mid = s + (e - s) / 2;
-        if (temp <= v[mid])
-        {
-            return true;
-        }
-        else
-        {
-            s = mid + 1;
-        }
-    }
-    return false;
-}
 int main()
 {
     int n;
@@ -30,17 +12,25 @@ int main()
         v.push_back(k);
     }
     sort(v.begin(), v.end());
-    int len = n;
-    for (int i = 0; i < len; i++)
+    int s = (v.size() - 1) / 2;
+    int e = v.size() - 1;
+    int mid = s;
+    int count = 0;
+    while (s >= 0 && e > mid)
     {
-        bool ans = Search(v, len, i);
-        if (ans)
+        int x = v[s] * 2;
+        if (x <= v[e])
         {
-            v.erase(v.begin());
-            len = v.size();
-            i = max(-1, i - 2);
+            count++;
+            s--;
+            e--;
+        }
+        else
+        {
+            s--;
         }
     }
-    cout << v.size() << endl;
+    cout << n - count << endl;
+
     return 0;
 }
