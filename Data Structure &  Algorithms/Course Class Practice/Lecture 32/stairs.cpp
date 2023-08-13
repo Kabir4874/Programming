@@ -11,11 +11,13 @@ int stairs(int n)
     {
         return 1;
     }
+    return stairs(n - 1) + stairs(n - 2);
 }
 int main()
 {
     int n;
     cin >> n;
     int ans = stairs(n);
+    cout << ans << endl;
     return 0;
 }
