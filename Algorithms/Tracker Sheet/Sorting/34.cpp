@@ -67,7 +67,6 @@ int main()
         cin >> n;
         if (n == 0)
             break;
-
         int arr[n];
         for (int i = 0; i < n; i++)
         {
