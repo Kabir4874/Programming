@@ -1,13 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
-void Merge(int arr[], int s, int e)
+void Merge(int arr[], int mid, int s, int e)
 {
-    int mid = s + (e - s) / 2;
     int len1 = mid - s + 1;
     int len2 = e - mid;
-    int *first = new int[len1];
-    int *second = new int[len2];
+    int first[len1];
+    int second[len2];
     int k = s;
     for (int i = 0; i < len1; i++)
     {
@@ -40,8 +39,6 @@ void Merge(int arr[], int s, int e)
     {
         arr[k++] = second[index2++];
     }
-    delete[] first;
-    delete[] second;
 }
 void mergeSort(int arr[], int s, int e)
 {
@@ -52,36 +49,32 @@ void mergeSort(int arr[], int s, int e)
     int mid = s + (e - s) / 2;
     mergeSort(arr, s, mid);
     mergeSort(arr, mid + 1, e);
-    Merge(arr, s, e);
+    Merge(arr, mid, s, e);
+}
+void Print(int arr[], int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << arr[n - 1] << endl;
 }
 int main()
 {
-    string s;
-    cin >> s;
-    int arr[100];
-    int index = 0;
-    for (int i = 0; i < s.size(); i += 2)
+    while (1)
     {
-        if (s[i] == '+')
-        {
-            continue;
-        }
-        else
-        {
-            arr[index++] = int(s[i]);
-        }
-    }
-    mergeSort(arr, 0, index - 1);
-    for (int i = 0; i < index; i++)
-    {
-        cout << char(arr[i]);
-        if (i == index - 1)
-        {
+        int n;
+        cin >> n;
+        if (n == 0)
             break;
-        }
-        cout << '+';
-    }
-    cout << endl;
 
+        int arr[n];
+        for (int i = 0; i < n; i++)
+        {
+            cin >> arr[i];
+        }
+        mergeSort(arr, 0, n - 1);
+        Print(arr, n);
+    }
     return 0;
 }

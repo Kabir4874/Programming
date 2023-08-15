@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
+int cnt = 0;
 void Merge(int arr[], int s, int e)
 {
     int mid = s + (e - s) / 2;
@@ -30,6 +31,7 @@ void Merge(int arr[], int s, int e)
         else
         {
             arr[k++] = second[index2++];
+            cnt += len1 - index1;
         }
     }
     while (index1 < len1)
@@ -56,32 +58,26 @@ void mergeSort(int arr[], int s, int e)
 }
 int main()
 {
-    string s;
-    cin >> s;
-    int arr[100];
-    int index = 0;
-    for (int i = 0; i < s.size(); i += 2)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        if (s[i] == '+')
+        int n;
+        cin >> n;
+        int *arr = new int[n];
+        for (int i = 0; i < n; i++)
         {
-            continue;
+            cin >> arr[i];
         }
-        else
-        {
-            arr[index++] = int(s[i]);
-        }
-    }
-    mergeSort(arr, 0, index - 1);
-    for (int i = 0; i < index; i++)
-    {
-        cout << char(arr[i]);
-        if (i == index - 1)
-        {
-            break;
-        }
-        cout << '+';
-    }
-    cout << endl;
 
+        mergeSort(arr, 0, n - 1);
+        for (int i = 0; i < n; i++)
+        {
+            cout << arr[i] << " ";
+        }
+        cout << cnt << endl;
+        cnt = 0;
+        delete[] arr;
+    }
     return 0;
 }
