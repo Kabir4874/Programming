@@ -27,16 +27,18 @@ void Merge(int arr[], int s, int e)
         if (first[index1] < second[index2])
         {
             arr[k++] = first[index1++];
+            cnt++;
         }
         else
         {
             arr[k++] = second[index2++];
-            cnt += len1 - index1;
+            cnt = cnt + (mid - index1);
         }
     }
     while (index1 < len1)
     {
         arr[k++] = first[index1++];
+        // cnt++;
     }
     while (index2 < len2)
     {
@@ -71,10 +73,6 @@ int main()
         }
 
         mergeSort(arr, 0, n - 1);
-        for (int i = 0; i < n; i++)
-        {
-            cout << arr[i] << " ";
-        }
         cout << cnt << endl;
         cnt = 0;
         delete[] arr;
