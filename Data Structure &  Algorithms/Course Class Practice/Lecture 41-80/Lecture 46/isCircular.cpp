@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
 class Node
@@ -91,19 +91,24 @@ void deleteNode(int position, Node *&head)
         delete curr;
     }
 }
-bool isCircular(Node* head){
-    if(head==NULL){
+bool isCircular(Node *head)
+{
+    if (head == NULL)
+    {
         return true;
     }
 
-    Node*temp= head->next;
-    while(temp!=NULL && temp!=head){
-        temp=temp->next;
+    Node *temp = head->next;
+    while (temp != NULL && temp != head)
+    {
+        temp = temp->next;
     }
-    if(temp==head){
+    if (temp == head)
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
@@ -125,5 +130,5 @@ int main()
     deleteNode(3, head);
     print(head);
     print(tail);
-return 0;
+    return 0;
 }
