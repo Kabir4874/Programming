@@ -65,7 +65,7 @@ void print(Node *&head)
     }
     cout << endl;
 }
-void deleteNode(Node *&head, int position)
+void deleteNode(Node *&head, Node *&tail, int position)
 {
     if (position == 1)
     {
@@ -86,6 +86,11 @@ void deleteNode(Node *&head, int position)
             cnt++;
         }
         prev->next = curr->next;
+        if (prev->next == NULL)
+        {
+            tail = prev;
+            tail->next = NULL;
+        }
         curr->next = NULL;
         delete curr;
     }
@@ -103,7 +108,9 @@ int main()
     insertAtPosition(head, tail, 2, 40);
     insertAtPosition(head, tail, 1, 400);
     print(head);
-    deleteNode(head, 6);
+    deleteNode(head, tail, 5);
     print(head);
+    cout << head->data << endl;
+    cout << tail->data << endl;
     return 0;
 }
