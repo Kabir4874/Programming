@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
-int cnt = 0;
-void Merge(int arr[], int s, int e)
+int Merge(int arr[], int s, int e)
 {
+    int cnt = 0;
     int mid = s + (e - s) / 2;
     int len1 = mid - s + 1;
     int len2 = e - mid;
@@ -38,7 +38,6 @@ void Merge(int arr[], int s, int e)
     while (index1 < len1)
     {
         arr[k++] = first[index1++];
-        // cnt++;
     }
     while (index2 < len2)
     {
@@ -46,17 +45,19 @@ void Merge(int arr[], int s, int e)
     }
     delete[] first;
     delete[] second;
+    return cnt;
 }
-void mergeSort(int arr[], int s, int e)
+int mergeSort(int arr[], int s, int e)
 {
-    if (s >= e)
-    {
-        return;
-    }
     int mid = s + (e - s) / 2;
-    mergeSort(arr, s, mid);
-    mergeSort(arr, mid + 1, e);
-    Merge(arr, s, e);
+    int cnt = 0;
+    if (s < e)
+    {
+        cnt = mergeSort(arr, s, mid);
+        cnt += mergeSort(arr, mid + 1, e);
+        cnt += Merge(arr, s, e);
+    }
+    return cnt;
 }
 int main()
 {
@@ -72,7 +73,7 @@ int main()
             cin >> arr[i];
         }
 
-        mergeSort(arr, 0, n - 1);
+        int cnt = mergeSort(arr, 0, n - 1);
         cout << cnt << endl;
         cnt = 0;
         delete[] arr;
