@@ -10,4 +10,3 @@ int main()
     cout << d.back() << endl;
     return 0;
 }
-
