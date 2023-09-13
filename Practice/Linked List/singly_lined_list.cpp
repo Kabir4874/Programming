@@ -97,20 +97,27 @@ void deleteNode(Node *&head, Node *&tail, int position)
 }
 int main()
 {
-    Node *n = new Node(4);
+    int k;
+    cout << "Enter the size of Linked List: ";
+    cin >> k;
+    cout << "Enter the values of Linked List: ";
+    int x;
+    cin >> x;
+    Node *n = new Node(x);
     Node *head = n;
     Node *tail = n;
-    insertAtHead(head, 10);
-    // print(head);
-    insertAtTail(tail, 20);
-    insertAtTail(tail, 30);
-    // print(head);
-    insertAtPosition(head, tail, 2, 40);
-    insertAtPosition(head, tail, 1, 400);
+    for (int i = 0; i < k - 1; i++)
+    {
+        cin >> x;
+        insertAtTail(tail, x);
+    }
     print(head);
-    deleteNode(head, tail, 5);
+    cout << "Enter the value you want to insert: ";
+    int a, b;
+    cin >> a;
+    cout << "Enter the position: ";
+    cin >> b;
+    insertAtPosition(head, tail, b, a);
     print(head);
-    cout << head->data << endl;
-    cout << tail->data << endl;
     return 0;
 }
