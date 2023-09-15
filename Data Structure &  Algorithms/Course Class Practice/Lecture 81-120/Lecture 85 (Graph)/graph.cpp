@@ -14,11 +14,11 @@ public:
             adj[v].push_back(u);
         }
     }
-    void printAdj()
+    void printAdjList()
     {
         for (auto i : adj)
         {
-            cout << i.first << "-> ";
+            cout << i.first << "->";
             for (auto j : i.second)
             {
                 cout << j << ", ";
@@ -30,7 +30,7 @@ public:
 int main()
 {
     int n;
-    cout << "Enter the number of nodes: ";
+    cout << "Enter the number or Nodes: ";
     cin >> n;
     int m;
     cout << "Enter the number of edges: ";
@@ -42,6 +42,7 @@ int main()
         cin >> u >> v;
         g.addEdge(u, v, 0);
     }
-    g.printAdj();
+    g.printAdjList();
+
     return 0;
 }
