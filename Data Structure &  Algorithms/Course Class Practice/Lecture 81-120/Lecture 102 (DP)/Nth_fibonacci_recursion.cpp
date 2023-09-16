@@ -18,11 +18,7 @@ int main()
 {
     int n;
     cin >> n;
-    vector<int> dp(n + 1);
-    for (int i = 0; i <= n; i++)
-    {
-        dp[i] = -1;
-    }
-    cout << fib(n, dp) << endl;
+    vector<int> dp(n + 1, -1);
+    cout << fib(n, dp);
     return 0;
 }
