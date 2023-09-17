@@ -25,9 +25,10 @@ int solveRec(vector<int> &num, int x)
 int main()
 {
 
-    int ans= solveRec(num,x);
-    if(ans== INT_MAX){
-        return  -1;
+    int ans = solveRec(num, x);
+    if (ans == INT_MAX)
+    {
+        return -1;
     }
     return 0;
 }
