@@ -6,9 +6,9 @@ int main()
     int coins[4] = {1, 5, 7, 9};
     int n = 12;
     int ans[4][n + 1];
-    for (int i = 0; i <=n; i++)
-    {   
-        ans[0][i]=i;
+    for (int i = 0; i <= n; i++)
+    {
+        ans[0][i] = i;
     }
     for (int i = 1; i < 4; i++)
     {
