@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
-int knapsack(int item[], int price[], int n, int ks)
+int knapsack(int coin[], int n, int ks)
 {
     int ans[n + 1][ks + 1];
     for (int i = 0; i <= ks; i++)
@@ -12,13 +12,13 @@ int knapsack(int item[], int price[], int n, int ks)
     {
         for (int j = 0; j <= ks; j++)
         {
-            if (j < item[i - 1])
+            if (j < coin[i - 1])
             {
                 ans[i][j] = ans[i - 1][j];
             }
             else
             {
-                ans[i][j] = max(ans[i - 1][j], ans[i - 1][j - item[i - 1]] + price[i - 1]);
+                ans[i][j] = max(ans[i - 1][j], ans[i - 1][j - coin[i - 1]] + coin[i - 1]);
             }
         }
     }
@@ -32,24 +32,15 @@ int main()
     {
         int n, ks;
         cin >> n;
-        int item[n], price[n];
+        int coin[n];
+        int sum = 0;
         for (int i = 0; i < n; i++)
         {
-            cin >> price[i] >> item[i];
+            cin >> coin[i];
+            sum += coin[i];
         }
-        int k;
-        cin >> k;
-        int arr[k];
-        for (int i = 0; i < k; i++)
-        {
-            cin >> arr[i];
-        }
-        int sum = 0;
-        for (int i = 0; i < k; i++)
-        {
-            sum += knapsack(item, price, n, arr[i]);
-        }
-        cout << sum << endl;
+        int k = knapsack(coin, n, sum / 2);
+        cout << sum - k * 2 << endl;
     }
     return 0;
 }
