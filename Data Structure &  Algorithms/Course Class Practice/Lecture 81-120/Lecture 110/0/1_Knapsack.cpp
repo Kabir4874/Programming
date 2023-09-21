@@ -25,21 +25,13 @@ int main()
     {
         for (int j = 0; j <= ks; j++)
         {
-            if (j < item[i])
+            if (j < item[i - 1])
             {
                 ans[i][j] = ans[i - 1][j];
             }
             else
             {
-                if (ans[i - 1][j - item[i - 1]] + price[i - 1] > ans[i - 1][j])
-                {
-
-                    ans[i][j] = ans[i - 1][j - item[i - 1]] + price[i - 1];
-                }
-                else
-                {
-                    ans[i][j] = ans[i - 1][j];
-                }
+                ans[i][j] = max(ans[i - 1][j], ans[i - 1][j - item[i - 1]] + price[i - 1]);
             }
         }
     }
