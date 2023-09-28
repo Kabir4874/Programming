@@ -1,34 +1,46 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
+int num[100005];
+int lis[100005];
 int main()
 {
-    int n;
-    cin >> n;
-    int num[n], lis[n];
-    for (int i = 0; i < n; i++)
+    int k, test = 1;
+    while (1)
     {
-        lis[i] = 0;
-    }
-    for (int i = 0; i < n; i++)
-    {
-        cin >> num[i];
-    }
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
+        int n = 0;
+        while (cin >> num[n++])
         {
-            if (num[i] > num[j])
+            if (num[n - 1] == -1)
             {
-                int nLis = lis[j] + 1;
-                if (nLis > lis[i])
+                break;
+            }
+        }
+        if (num[0] == -1)
+        {
+            break;
+        }
+        for (int i = 0; i < n - 1; i++)
+        {
+            lis[i] = 1;
+        }
+        for (int i = 1; i < n - 1; i++)
+        {
+            for (int j = 0; j < i; j++)
+            {
+                if (num[i] < num[j])
                 {
-                    lis[i] = nLis;
+                    int nLis = lis[j] + 1;
+                    if (nLis > lis[i])
+                    {
+                        lis[i] = nLis;
+                    }
                 }
             }
         }
+        int ans = *max_element(lis, lis + n);
+        cout << "Test #" << test++ << ":" << endl
+             << "  maximum possible interceptions: " << ans << endl;
     }
-    int ans = *max_element(lis, lis + n);
-    cout << ans << endl;
     return 0;
 }
