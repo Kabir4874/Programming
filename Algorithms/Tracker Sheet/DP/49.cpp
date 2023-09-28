@@ -28,7 +28,7 @@ int main()
         {
             for (int j = 0; j < i; j++)
             {
-                if (num[i] > num[j])
+                if (num[i] < num[j])
                 {
                     int nLis = lis[j] + 1;
                     if (nLis > lis[i])
