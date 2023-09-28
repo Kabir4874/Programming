@@ -27,7 +27,7 @@ int FindLis(int n, int num[])
     {
         if (ans < lis[i])
         {
-            ans = lis[i];
+            ans = lis[i]; 
         }
     }
     return ans;
