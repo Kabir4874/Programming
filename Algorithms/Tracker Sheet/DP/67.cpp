@@ -43,6 +43,5 @@ int main()
     }
     int ans = FindLis(n, num);
     cout << ans << endl;
-
     return 0;
 }
