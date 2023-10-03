@@ -12,9 +12,9 @@ int find_max_length_LNIS(vector<int> &sequence)
     {
         for (int j = 0; j < i; ++j)
         {
-            if (sequence[i] <= sequence[j] && dp[i] <= dp[j])
+            if (sequence[i] <= sequence[j] && dp[i] <= dp[j] + 1)
             {
-                dp[i] = dp[j];
+                dp[i] = dp[j] + 1;
             }
         }
     }
@@ -24,7 +24,6 @@ int find_max_length_LNIS(vector<int> &sequence)
     {
         max_length = max(max_length, dp[i]);
     }
-
     return max_length;
 }
 
