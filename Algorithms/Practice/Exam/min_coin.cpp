@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <climits>
-
 using namespace std;
-
 int minCoins(vector<int> &coins, int target)
 {
     int n = coins.size();
@@ -41,7 +39,6 @@ int minCoins(vector<int> &coins, int target)
     }
     return dp[target][n];
 }
-
 int main()
 {
     vector<int> coins = {2, 5, 7, 10, 20};
