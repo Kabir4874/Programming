@@ -47,8 +47,6 @@ int main()
     vector<int> coins = {2, 5, 7, 10, 20};
     int target_value = 12;
     int result = minCoins(coins, target_value);
-
     cout << "The minimum number of coins needed to make " << target_value << " is " << result << "." << endl;
-
     return 0;
 }
