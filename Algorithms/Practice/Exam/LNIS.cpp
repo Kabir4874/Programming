@@ -13,7 +13,7 @@ int find_max_length_LNIS(vector<int> &sequence)
             {
                 dp[i] = dp[j] + 1;
             }
-        }
+       }
     }
     int max_length = 0;
     for (int i = 0; i < n; ++i)
