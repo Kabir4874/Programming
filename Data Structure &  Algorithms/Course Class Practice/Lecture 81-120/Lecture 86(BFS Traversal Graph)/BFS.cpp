@@ -44,6 +44,7 @@ vector<int> BFS(int vertex, vector<pair<int, int>> edges)
             bfs(adjList, visited, ans, i);
         }
     }
+    return ans;
 }
 int main()
 {
@@ -56,9 +57,14 @@ int main()
     {
         int u, v;
         cin >> u >> v;
-        edges[i].first = u;
-        edges[i].second = v;
+        edges.push_back(make_pair(u, v));
     }
-    BFS(vertex, edges);
+    vector<int> ans;
+    ans = BFS(vertex, edges);
+
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i] << endl;
+    }
     return 0;
 }
