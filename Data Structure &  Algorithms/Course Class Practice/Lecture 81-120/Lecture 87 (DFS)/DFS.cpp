@@ -51,7 +51,7 @@ int main()
     cout << result.size() << endl;
     for (const vector<int> &component : result)
     {
-        for (int node : component) 
+        for (int node : component)
         {
             cout << node << " ";
         }
