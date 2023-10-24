@@ -1,12 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 bool checkCycleDFS(int node, unordered_map<int, bool> &visited, unordered_map<int, bool> &dfsVisited, unordered_map<int, list<int>> &adj)
 {
-
     visited[node] = true;
     dfsVisited[node] = true;
-
     for (auto i : adj[node])
     {
         if (!visited[i])
