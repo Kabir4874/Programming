@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 bool checking(vector<int> &arr, int n, int m, int mid)
 {
     int cnt = 1, temp = 0;
@@ -20,7 +19,6 @@ bool checking(vector<int> &arr, int n, int m, int mid)
     }
     return cnt <= m;
 }
-
 int main()
 {
     int t;
@@ -34,7 +32,6 @@ int main()
         {
             cin >> arr[i];
         }
-
         int s = 1, e = INT_MAX, ans = -1;
         while (s <= e)
         {
@@ -50,7 +47,6 @@ int main()
                 s = mid + 1;
             }
         }
-
         cout << "Case " << k << ": " << ans << endl;
     }
     return 0;
