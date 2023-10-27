@@ -38,7 +38,6 @@ void Merge(vector<ll> &arr, ll low, ll mid, ll high)
         arr[k++] = right[j++];
     }
 }
-
 void mergeSort(vector<ll> &arr, ll low, ll high)
 {
     if (low < high)
