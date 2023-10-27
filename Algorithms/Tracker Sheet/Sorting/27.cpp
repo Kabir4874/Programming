@@ -1,82 +1,71 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
-int Merge(int arr[], int s, int e)
+ll cnt = 0;
+void Merge(vector<ll> &arr, ll low, ll mid, ll high)
 {
-    int cnt = 0;
-    int mid = s + (e - s) / 2;
-    int len1 = mid - s + 1;
-    int len2 = e - mid;
-    int *first = new int[len1];
-    int *second = new int[len2];
-    int k = s;
-    for (int i = 0; i < len1; i++)
+    ll n1 = mid - low + 1;
+    ll n2 = high - mid;
+    vector<ll> left(n1);
+    vector<ll> right(n2);
+    for (ll i = 0; i < n1; i++)
     {
-        first[i] = arr[k++];
+        left[i] = arr[low + i];
     }
-    k = mid + 1;
-    for (int i = 0; i < len2; i++)
+    for (ll i = 0; i < n2; i++)
     {
-        second[i] = arr[k++];
+        right[i] = arr[mid + 1 + i];
     }
-    int index1 = 0;
-    int index2 = 0;
-    k = s;
-    while (index1 < len1 && index2 < len2)
+    ll i = 0, j = 0, k = low;
+    while (i < n1 && j < n2)
     {
-        if (first[index1] < second[index2])
+        if (left[i] <= right[j])
         {
-            arr[k++] = first[index1++];
-            cnt++;
+            arr[k++] = left[i++];
         }
         else
         {
-            arr[k++] = second[index2++];
-            cnt = cnt + (mid - index1);
+            arr[k++] = right[j++];
+            cnt += n1 - i;
         }
     }
-    while (index1 < len1)
+    while (i < n1)
     {
-        arr[k++] = first[index1++];
+        arr[k++] = left[i++];
     }
-    while (index2 < len2)
+    while (j < n2)
     {
-        arr[k++] = second[index2++];
+        arr[k++] = right[j++];
     }
-    delete[] first;
-    delete[] second;
-    return cnt;
 }
-int mergeSort(int arr[], int s, int e)
+
+void mergeSort(vector<ll> &arr, ll low, ll high)
 {
-    int mid = s + (e - s) / 2;
-    int cnt = 0;
-    if (s < e)
+    if (low < high)
     {
-        cnt = mergeSort(arr, s, mid);
-        cnt += mergeSort(arr, mid + 1, e);
-        cnt += Merge(arr, s, e);
+        ll mid = low + (high - low) / 2;
+        mergeSort(arr, low, mid);
+        mergeSort(arr, mid + 1, high);
+        Merge(arr, low, mid, high);
     }
-    return cnt;
 }
+
 int main()
 {
-    int t;
+    ll t;
     cin >> t;
     while (t--)
     {
-        int n;
+        ll n;
         cin >> n;
-        int *arr = new int[n];
-        for (int i = 0; i < n; i++)
+        vector<ll> arr(n, 0);
+        cnt = 0;
+        for (ll i = 0; i < n; i++)
         {
             cin >> arr[i];
         }
-
-        int cnt = mergeSort(arr, 0, n - 1);
+        mergeSort(arr, 0, n - 1);
         cout << cnt << endl;
-        cnt = 0;
-        delete[] arr;
     }
     return 0;
 }
