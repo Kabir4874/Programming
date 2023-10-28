@@ -53,7 +53,6 @@ unordered_map<int, list<int>> adjacencyMatrixToList(const vector<vector<int>> &a
             }
         }
     }
-
     return adj;
 }
 int main()
@@ -69,7 +68,6 @@ int main()
         }
     }
     unordered_map<int, list<int>> adj = adjacencyMatrixToList(arr);
-
     int timer = 0;
     vector<int> disc(n, -1);
     vector<int> low(n, -1);
