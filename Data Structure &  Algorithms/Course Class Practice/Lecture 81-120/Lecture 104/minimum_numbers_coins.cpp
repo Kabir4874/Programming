@@ -33,5 +33,6 @@ int main()
         }
         cout << endl;
     }
+    cout << ans[4][n];
     return 0;
 }
