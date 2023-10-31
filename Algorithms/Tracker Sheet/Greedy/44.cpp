@@ -27,6 +27,5 @@ int main()
         }
     }
     cout << (n - cnt / 2) << endl;
-
     return 0;
 }

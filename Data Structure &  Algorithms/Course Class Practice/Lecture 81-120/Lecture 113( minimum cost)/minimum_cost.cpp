@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+void fastIO()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+}
+int minimumCoins(int n, vector<int> days, vector<int> cost)
+{
+    vector<int> dp(n + 1, INT_MAX);
+    dp[n] = 0;
+    for (int k = n - 1; k >= 0; k--)
+    {
+        int opt1 = cost[0] + dp[k + 1];
+        int i;
+        for (i = k; i < n && days[i] < days[k] + 7; i++)
+            ;
+        int opt2 = cost[1] + dp[i];
+
+        for (i = k; i < n && days[i] < days[k] + 30; i++)
+            ;
+        int opt3 = cost[2] + dp[i];
+
+        dp[k] = min(opt1, min(opt2, opt3));
+    }
+    return dp[0];
+}
+int main()
+{
+    fastIO();
+
+    return 0;
+}
