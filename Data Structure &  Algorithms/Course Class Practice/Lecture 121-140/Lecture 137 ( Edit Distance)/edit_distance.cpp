@@ -45,4 +45,4 @@ int main()
     fastIO();
 
     return 0;
-} 
+}
