@@ -24,7 +24,7 @@ void bfs(unordered_map<int, list<int>> &adjList, unordered_map<int, bool> &visit
         for (auto i : adjList[frontNode])
         {
             if (!visited[i])
-            {
+            { 
                 q.push(i);
                 visited[i] = 1;
             }
