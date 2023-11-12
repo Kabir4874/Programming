@@ -145,5 +145,7 @@ int main()
     takeInput(root);
     cout << "Printing the BST:" << endl;
     levelOrderTraversal(root);
+    deleteFromBST(root, 7);
+    levelOrderTraversal(root);
     return 0;
 }
