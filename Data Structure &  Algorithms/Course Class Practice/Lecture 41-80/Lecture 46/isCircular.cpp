@@ -97,7 +97,6 @@ bool isCircular(Node *head)
     {
         return true;
     }
-
     Node *temp = head->next;
     while (temp != NULL && temp != head)
     {
@@ -116,7 +115,6 @@ int main()
 {
     Node *node1 = new Node(4);
     // cout << node1->data << endl;
-
     Node *head = node1;
     Node *tail = node1;
     // print(head);
