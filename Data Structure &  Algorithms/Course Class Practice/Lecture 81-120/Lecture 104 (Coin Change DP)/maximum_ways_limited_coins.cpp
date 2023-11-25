@@ -1,37 +1,37 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
 long long maxWaysToMakeChange(vector<pair<int, int>> &coins, int amount)
 {
-    int n = coins.size();
-    vector<vector<long long>> dp(n + 1, vector<long long>(amount + 1, 0));
-    dp[0][0] = 1;
+    vector<long long> dp(amount + 1, 0);
+    dp[0] = 1;
 
-    for (int i = 1; i <= n; i++)
+    for (const auto &coin : coins)
     {
+        vector<long long> temp(amount + 1, 0);
         for (int j = 0; j <= amount; j++)
         {
-            for (int k = 0; k <= coins[i - 1].second; k++)
+            for (int k = 0; k <= coin.second && j + k * coin.first <= amount; k++)
             {
-                if (j >= k * coins[i - 1].first)
-                {
-                    dp[i][j] += dp[i - 1][j - k * coins[i - 1].first];
-                }
+                temp[j + k * coin.first] += dp[j];
             }
         }
+        dp = temp;
     }
 
-    return dp[n][amount];
+    return dp[amount];
 }
+
 int main()
 {
     vector<pair<int, int>> coins = {{1, 0}, {2, 0}, {3, 0}, {4, 0}};
     int amount = 0;
 
-    for (int i = 0; i < coins.size(); i++)
+    for (auto &coin : coins)
     {
-        cout << "Enter coin limit for " << coins[i].first << ": ";
-        cin >> coins[i].second;
+        cout << "Enter coin limit for " << coin.first << ": ";
+        cin >> coin.second;
     }
 
     cout << "Enter the amount: ";

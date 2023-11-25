@@ -1,15 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
-void findLongestIncreasingSubsequence(int arr[], int n, int &maxLength, vector<int> &longestSubsequence)
-{
-    int lis[n];
-    int prevIndex[n];
 
-    for (int i = 0; i < n; i++)
-    {
-        lis[i] = 1;
-        prevIndex[i] = -1;
-    }
+void findLongestIncreasingSubsequence(const vector<int> &arr, vector<int> &longestSubsequence)
+{
+    int n = arr.size();
+    vector<int> lis(n, 1);
+    vector<int> prevIndex(n, -1);
 
     for (int i = 1; i < n; i++)
     {
@@ -23,8 +19,7 @@ void findLongestIncreasingSubsequence(int arr[], int n, int &maxLength, vector<i
         }
     }
 
-    int maxLISLength = *max_element(lis, lis + n);
-    maxLength = maxLISLength;
+    int maxLISLength = *max_element(lis.begin(), lis.end());
 
     for (int i = n - 1; i >= 0; i--)
     {
@@ -48,19 +43,18 @@ int main()
     cout << "Enter the number of elements: ";
     cin >> n;
 
-    int arr[n];
+    vector<int> arr(n);
     cout << "Enter the elements: ";
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
 
-    int maxLength;
     vector<int> longestSubsequence;
 
-    findLongestIncreasingSubsequence(arr, n, maxLength, longestSubsequence);
+    findLongestIncreasingSubsequence(arr, longestSubsequence);
 
-    cout << "Maximum length of the longest increasing subsequence: " << maxLength << endl;
+    cout << "Maximum length of the longest increasing subsequence: " << longestSubsequence.size() << endl;
     cout << "Longest increasing subsequence: ";
     for (int i = 0; i < longestSubsequence.size(); i++)
     {

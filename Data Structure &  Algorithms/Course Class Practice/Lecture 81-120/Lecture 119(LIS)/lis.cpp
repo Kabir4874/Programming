@@ -1,50 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
-int num[100005];
-int lis[100005];
+int find_lis(vector<int> a)
+{
+    vector<int> dp;
+    for (int i : a)
+    {
+        int pos = lower_bound(dp.begin(), dp.end(), i) - dp.begin();
+        if (pos == dp.size())
+        {
+            dp.push_back(i);
+        }
+        else
+        {
+            dp[pos] = i;
+        }
+    }
+    return dp.size();
+}
 int main()
 {
-    int k, test = 0;
-    while (1)
+    int n;
+    cin >> n;
+
+    vector<int> num(n);
+    for (int i = 0; i < n; i++)
     {
-        int n = 0;
-        while (cin >> num[n++])
-        {
-            if (num[n - 1] == -1)
-            {
-                break;
-            }
-        }
-        if (num[0] == -1)
-        {
-            break;
-        }
-        for (int i = 0; i < n - 1; i++)
-        {
-            lis[i] = 1;
-        }
-        for (int i = 1; i < n - 1; i++)
-        {
-            for (int j = 0; j < i; j++)
-            {
-                if (num[i] > num[j])
-                {
-                    int nLis = lis[j] + 1;
-                    if (nLis > lis[i])
-                    {
-                        lis[i] = nLis;
-                    }
-                }
-            }
-        }
-        int ans = *max_element(lis, lis + n - 1);
-        if (test != 0)
-        {
-            cout << endl;
-        }
-        printf("Test #%d:\n", ++test);
-        printf("  maximum possible interceptions: %d\n", ans);
+        cin >> num[i];
     }
+    int ans = find_lis(num);
+    cout << ans << endl;
     return 0;
 }

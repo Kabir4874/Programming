@@ -1,11 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
-void fastIO()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-}
 int longestCommonSubsequence(string a, string b)
 {
     vector<vector<int>> dp(a.length() + 1, vector<int>(b.length() + 1, 0));
@@ -27,9 +22,19 @@ int longestCommonSubsequence(string a, string b)
     }
     return dp[0][0];
 }
+
 int main()
 {
-    fastIO();
+
+    string a, b;
+    cout << "Enter the first string: ";
+    cin >> a;
+    cout << "Enter the second string: ";
+    cin >> b;
+
+    int result = longestCommonSubsequence(a, b);
+
+    cout << "Length of the Longest Common Subsequence: " << result << endl;
 
     return 0;
 }
