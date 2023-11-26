@@ -1,44 +1,24 @@
-#include <iostream>
-#include <vector>
+// Min cost path
+#include <bits/stdc++.h>
 using namespace std;
-
-int findMinimumCost(string s, string t)
+#define row 3
+#define col 3
+int minCost(int cost[row][col])
 {
-    int m = s.length();
-    int n = t.length();
-
-    vector<vector<int>> dp(m + 1, vector<int>(n + 1));
-
-    for (int i = 0; i <= m; i++)
-    {
-        dp[i][0] = i;
-    }
-    for (int j = 0; j <= n; j++)
-    {
-        dp[0][j] = j;
-    }
-    for (int i = 1; i <= m; i++)
-    {
-        for (int j = 1; j <= n; j++)
-        {
-            if (s[i - 1] == t[j - 1])
-            {
-                dp[i][j] = dp[i - 1][j - 1];
-            }
-            else
-            {
-                dp[i][j] = 1 + min(dp[i - 1][j], min(dp[i][j - 1], dp[i - 1][j - 1]));
-            }
-        }
-    }
-    return dp[m][n];
+    for (int i = 1; i < row; i++)
+        cost[i][0] += cost[i - 1][0];
+    for (int j = 1; j < col; j++)
+        cost[0][j] += cost[0][j - 1];
+    for (int i = 1; i < row; i++)
+        for (int j = 1; j < col; j++)
+            cost[i][j] += min(cost[i - 1][j - 1],
+                              min(cost[i - 1][j], cost[i][j - 1]));
+    return cost[row - 1][col - 1];
 }
-
-int main()
+int main(int argc, char const *argv[])
 {
-    string s, t;
-    cin >> s >> t;
-    int minimumCost = findMinimumCost(s, t);
-    cout << minimumCost << endl;
+    int cost[row][col] = {{1, 2, 3}, {4, 8, 2}, {1, 5, 3}};
+
+    cout << minCost(cost) << endl;
     return 0;
 }
