@@ -1,11 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
-
 const int INF = 1e9; // A large enough value to represent infinity
-
 int coinChange(vector<pair<int, int>> &coins, int amount)
 {
     int n = coins.size();
@@ -20,27 +17,20 @@ int coinChange(vector<pair<int, int>> &coins, int amount)
             dp[j] = min(dp[j], dp[j - numCoins * coins[i].first] + numCoins);
         }
     }
-
     return (dp[amount] == INF) ? -1 : dp[amount];
 }
-
 int main()
 {
     vector<pair<int, int>> coins = {{5, 0}, {10, 0}, {20, 0}, {50, 0}, {100, 0}, {200, 0}}; // Predefined coin values
     int amount = 0;
-
     for (auto &coin : coins)
     {
         cout << "Enter coin limit for " << coin.first << ": ";
         cin >> coin.second;
     }
-
     cout << "Enter the amount: ";
     cin >> amount;
-
     int result = coinChange(coins, amount);
-
     cout << "Minimum number of coins: " << result << endl;
-
     return 0;
 }

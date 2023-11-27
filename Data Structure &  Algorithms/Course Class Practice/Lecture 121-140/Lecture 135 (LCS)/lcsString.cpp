@@ -41,7 +41,6 @@ string longestCommonSubsequence(const string &a, const string &b)
             j++;
         }
     }
-    // Print the LCS string
     cout << "Longest Common Subsequence: " << lcs << endl;
     return lcs;
 }

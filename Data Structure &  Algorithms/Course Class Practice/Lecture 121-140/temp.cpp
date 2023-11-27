@@ -18,7 +18,6 @@ int minCost(int cost[row][col])
 int main(int argc, char const *argv[])
 {
     int cost[row][col] = {{1, 2, 3}, {4, 8, 2}, {1, 5, 3}};
-
     cout << minCost(cost) << endl;
     return 0;
 }
