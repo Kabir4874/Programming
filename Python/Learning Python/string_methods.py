@@ -1,0 +1,13 @@
+a="kabir ahmed"
+print(len(a))
+print(a.upper())
+print(a.lower())
+print(a.rstrip("r"))
+print(a.replace("kabir","ahmed"))
+print(a.split("b"))
+print(a.capitalize())
+print(a.center(50))
+print(a.count("a"))
+print(a.endswith("d"))
+print(a.find("kabir"))
+print(a.islower())
