@@ -7,3 +7,6 @@ else:
     print("No")
 
 print(l[1:2])
+
+lst= [i for i in range(4)]
+print(lst)
